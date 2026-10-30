@@ -1,0 +1,29 @@
+[project]
+name = "langgraph-triage-lab"
+version = "0.1.0"
+description = "Learn LangGraph end to end by rebuilding a Microsoft Fabric failure-triage agent, one capability per lesson."
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "langgraph>=1.2",
+    "langgraph-checkpoint-sqlite>=3.1",
+    "langchain-core>=1.7",
+    "langchain-openai>=1.7",
+    "azure-identity>=1.20",
+    "httpx>=0.27",
+    "pydantic>=2.8",
+    "python-dotenv>=1.0",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8"]
+
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["triage_lab*", "lessons*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
